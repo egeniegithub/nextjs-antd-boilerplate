@@ -1,65 +1,170 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import {
+  Breadcrumb,
+  // Icon,
+  Row,
+  Col,
+  Layout,
+  Card,
+  Carousel,
+} from 'antd';
+import {
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  PhoneOutlined,
+  HomeOutlined,
+  UserOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
+  GoogleOutlined
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+} from '@ant-design/icons';
+import Link from 'next/link'
+import "../styles/home.less";
+const {
+  Header, Content,
+} = Layout;
+export default () => (
+  <Layout>
+    <Header>
+      <Row justify="space-around" type="flex">
+        <Col span={20}>
+          <Row justify="space-around" type="flex">
+            <Col span={12} md={12} xs={24}>
+              <span className='brand-name'>Next Js Boilerpate </span>
+            </Col>
+            <Col span={12} md={12} xs={0}>
+              <span className="ml-30 float-right"><PhoneOutlined /> Call us egenie@123</span>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Header>
+    <Row justify="space-around" type="flex">
+      <Col span={20} style={{ textAlign: 'right', height: 50, display: 'flex', justifyContent: 'flex-end', textTransform: 'uppercase' }}>
+        <div style={{ width: 'fit-content', margin: 'auto 0px' }}>
+          <Link href="/">
+            <a>
+              Home
+            </a>
+          </Link>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+        <div style={{ width: 'fit-content', margin: 'auto 0px' }}>
+          <Link href="/">
+            <a>
+              Contact Us
+            </a>
+          </Link>
+        </div>
+        <div style={{ width: 'fit-content', margin: 'auto 0px' }}>
+          <Link href="/">
+            <a>
+              About us
+            </a>
+          </Link>
+        </div>
+      </Col>
+    </Row>
+    <Row justify="space-around" type="flex">
+      <Col span={20}>
+        <Breadcrumb>
+          <Breadcrumb.Item href="">
+            <HomeOutlined />
+          </Breadcrumb.Item>
+          <Breadcrumb.Item href="">
+            <UserOutlined />
+            <span>Home</span>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </Col>
+    </Row>
+    <Row justify="space-around" type="flex">
+      <Col span={20} style={{ paddingTop: '30px', paddingBottom: '30px', minHeight: '500px' }}>
+        <Content>
+          <div>
+            <Carousel autoplay effect='fade'>
+              <div>
+                <h3>
+                  <img src="https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg" />
+                </h3>
+              </div>
+              <div>
+                <h3>
+                  <img src="https://miro.medium.com/max/480/1*ZvmbMEmtGR15Xj-eb3osXA.png" />
+                </h3>
+              </div>
+              <div>
+                <h3>
+                  <img src="https://images.ctfassets.net/3prze68gbwl1/asset-17suaysk1qa1keu/f711e6792e339e0a386e0bec6f273316/ReactJS.png" />
+                </h3>
+              </div>
+            </Carousel>
+          </div>
+          <Row gutter={16}>
+            <Col span={6} md={6} sm={12} xs={24}>
+              <Card
+                hoverable
+                cover={
+                  <img alt="image1" style={{ width: '100%' }} src="https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg" />
+                }
+              >
+                <Card.Meta
+                  title="Menu 1"
+                  description="Test1................"
+                />
+              </Card>
+            </Col>
+            <Col span={6} md={6} sm={12} xs={24}>
+              <Card
+                hoverable
+                cover={
+                  <img alt="image2" style={{ width: '100%' }} src="https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg" />}
+              >
+                <Card.Meta
+                  title="Menu 2"
+                  description="Test1................"
+                />
+              </Card>
+            </Col>
+            <Col span={6} md={6} sm={12} xs={24}>
+              <Card
+                hoverable
+                cover={
+                  <img alt="image3" style={{ width: '100%' }} src="https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg" />}
+              >
+                <Card.Meta
+                  title="Menu 3"
+                  description="Test1................"
+                />
+              </Card>
+            </Col>
+            <Col span={6} md={6} sm={12} xs={24}>
+              <Card
+                hoverable
+                cover={
+                  <img alt="image4" style={{ width: '100%' }} src="https://miro.medium.com/max/2880/1*2tmzU7bve-VlTkOMWsk_Hw.jpeg" />}
+              >
+                <Card.Meta
+                  title="Menu 4"
+                  description="Test1................"
+                />
+              </Card>
+            </Col>
+          </Row>
+        </Content>
+      </Col>
+    </Row>
+    <Row justify="space-around" type="flex" style={{ background: '#f9f9f9' }}>
+      <Col md={8} xs={20} style={{ height: '40px', display: 'flex' }}>
+        <div style={{ margin: 'auto 0px' }}>
+          &copy; 2020 egenienext
+        </div>
+      </Col>
+      <Col md={8} xs={20}>
+        <div style={{ margin: 'auto', height: '40px', display: 'flex', justifyContent: 'flex-end' }}>
+          <FacebookOutlined style={{ margin: 'auto 10px', fontSize: 20 }} />
+          <InstagramOutlined style={{ margin: 'auto 10px', fontSize: 20 }} />
+          <GoogleOutlined style={{ margin: 'auto 10px', fontSize: 20 }} />
+        </div>
+      </Col>
+    </Row>
+  </Layout>
+)
