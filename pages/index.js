@@ -29,7 +29,7 @@ export default () => (
         <Col span={20}>
           <Row justify="space-around" type="flex">
             <Col span={12} md={12} xs={24}>
-              <span >Next Js Boilerpate </span>
+              <span className='brand-name'>Next Js Boilerpate </span>
             </Col>
             <Col span={12} md={12} xs={0}>
               <span className="ml-30 float-right"><PhoneOutlined /> Call us egenie@123</span>
