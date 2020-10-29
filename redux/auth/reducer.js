@@ -13,7 +13,8 @@ const init = () => ({
         phone: null,
         country: null,
         city: null,
-    }
+    },
+    isLoggedIn : false,
 })
 
 
@@ -27,7 +28,8 @@ export const userReducer = (state = init(), action) => {
         case SET_USER:
             return {
                 ...state,
-                user: action.payload,
+                user: action.payload.user,
+                isLoggedIn : action.payload.isLoggedIn
             }
 
         default:
