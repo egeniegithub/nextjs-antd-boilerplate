@@ -24,7 +24,7 @@ import { Typography } from 'antd';
 
 import axios from 'axios';
 
-
+import { withAuthSync } from '../utils/auth';
 const { Title } = Typography;
 
 const {
