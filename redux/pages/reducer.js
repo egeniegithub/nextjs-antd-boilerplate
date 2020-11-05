@@ -1,27 +1,21 @@
-import { STORE_PAGE_INTO_DB } from './types';
-import {HYDRATE} from 'next-redux-wrapper';
+import { STORE_PAGE_INTO_DB } from "./types";
+import { HYDRATE } from "next-redux-wrapper";
 
-
-
-// init state 
-
+// init state
 
 const init = () => ({
-  requestedPage : {},
-})
-
-
+  requestedPage: {},
+});
 
 export const pageReducer = (state = init(), action) => {
-
-    switch (action.type) {
-        case HYDRATE:
-            return {...state, ...action.payload};
-        case STORE_PAGE_INTO_DB:
-            return{...state,requestedPage:action.payload};
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case HYDRATE:
+      return { ...state, ...action.payload };
+    case STORE_PAGE_INTO_DB:
+      return { ...state, requestedPage: action.payload };
+    default:
+      return state;
+  }
 };
 
 export default pageReducer;

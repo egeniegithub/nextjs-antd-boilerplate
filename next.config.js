@@ -2,9 +2,9 @@ const withSass = require("@zeit/next-sass");
 const withLess = require("@zeit/next-less");
 const withCSS = require("@zeit/next-css");
 
-require('dotenv').config();
+require("dotenv").config();
 
-const withPlugins = require('next-compose-plugins');
+const withPlugins = require("next-compose-plugins");
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -28,36 +28,35 @@ if (typeof require !== "undefined") {
 //   ),
 // });
 
-
-
 module.exports = withPlugins([
-  [withCSS({
-    cssModules: true,
-    cssLoaderOptions: {
-      importLoaders: 1,
-      localIdentName: "[local]___[hash:base64:5]",
+  [
+    withCSS({
+      cssModules: true,
+      cssLoaderOptions: {
+        importLoaders: 1,
+        localIdentName: "[local]___[hash:base64:5]",
+      },
+      ...withLess(
+        withSass({
+          lessLoaderOptions: {
+            javascriptEnabled: true,
+          },
+        })
+      ),
+    }),
+  ],
+  [
+    {
+      env: {
+        MONGODB_URI: process.env.MONGODB_URI,
+        DB_NAME: process.env.DB_NAME,
+        jwtSecret: process.env.jwtSecret,
+      },
     },
-    ...withLess(
-      withSass({
-        lessLoaderOptions: {
-          javascriptEnabled: true,
-        },
-      })
-    ),
-  })]
-  ,
-  [{
-    env: {
-      MONGODB_URI: process.env.MONGODB_URI,
-      DB_NAME: process.env.DB_NAME,
-      jwtSecret : process.env.jwtSecret,
-    },
-  }]
-  ])
-
+  ],
+]);
 
 //  MongoDB Credentials
-
 
 // module.exports = {
 //   env: {

@@ -1,26 +1,20 @@
-import { SET_USER } from './types';
-import {HYDRATE} from 'next-redux-wrapper';
+import { SET_USER } from "./types";
+import { HYDRATE } from "next-redux-wrapper";
 
-
-
-// init state 
-
+// init state
 
 const init = () => ({
-    login: false,
-})
-
-
+  login: false,
+});
 
 export const modalReducer = (state = init(), action) => {
+  switch (action.type) {
+    case HYDRATE:
+      return { ...state, ...action.payload };
 
-    switch (action.type) {
-        case HYDRATE:
-            return {...state, ...action.payload};
-
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 export default modalReducer;
